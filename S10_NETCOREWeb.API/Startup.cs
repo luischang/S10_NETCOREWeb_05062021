@@ -9,6 +9,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using S10_NETCOREWeb.Domain.Core.Interfaces;
 using S10_NETCOREWeb.Domain.Infrastructure.Data;
+using S10_NETCOREWeb.Domain.Infrastructure.Mappings;
 using S10_NETCOREWeb.Domain.Infrastructure.Repositories;
 using System;
 using System.Collections.Generic;
@@ -41,6 +42,7 @@ namespace S10_NETCOREWeb.API
             );
 
             services.AddTransient<ICustomerRepository, CustomerRepository>();
+            services.AddAutoMapper(typeof(AutomapperProfile));
 
         }
 

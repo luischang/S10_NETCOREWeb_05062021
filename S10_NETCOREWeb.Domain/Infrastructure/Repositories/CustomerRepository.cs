@@ -59,6 +59,8 @@ namespace S10_NETCOREWeb.Domain.Infrastructure.Repositories
         {
             var customerNow = await _context.Customer
                                    .Where(x => x.Id == id).FirstOrDefaultAsync();
+            if (customerNow == null)
+                return false;
             _context.Customer.Remove(customerNow);
             int countRows = await _context.SaveChangesAsync();
             return (countRows > 0);
